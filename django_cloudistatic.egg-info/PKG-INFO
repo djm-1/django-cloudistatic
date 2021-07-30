@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: django-cloudistatic
-Version: 0.1.dev1
+Version: 0.1.dev2
 Summary: A Django app to serve staticfiles using cloudinary
-Home-page: https://djm-1.github.io/
+Home-page: https://github.com/djm-1/django-cloudistatic
 Author: Dibyajyoti Mondal
 Author-email: dibyajyoti.bhs@gmail.com
 License: BSD-3-Clause
