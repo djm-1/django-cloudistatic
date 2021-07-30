@@ -37,3 +37,7 @@ Quick start
    and your staticfiles will be ready to be served from there. If you want to delete your local STATIC_ROOT (staticfiles will not be served from here now) after
    uploading to cloud, then you should run ``python manage.py cloudistatic --deletelocal`` instead of 
    ``python manage.py cloudistatic``.
+
+For more info check out the `documentation
+<https://django-cloudistatic.readthedocs.io>`_. And for questions about usage or
+development you can create an issue on Github.

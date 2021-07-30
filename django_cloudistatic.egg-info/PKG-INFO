@@ -1,11 +1,14 @@
 Metadata-Version: 2.1
 Name: django-cloudistatic
-Version: 0.1.dev2
+Version: 0.0.1
 Summary: A Django app to serve staticfiles using cloudinary
 Home-page: https://github.com/djm-1/django-cloudistatic
 Author: Dibyajyoti Mondal
 Author-email: dibyajyoti.bhs@gmail.com
 License: BSD-3-Clause
+Project-URL: Documentation, https://django-cloudistatic.readthedocs.io
+Project-URL: Source, https://github.com/djm-1/django-cloudistatic
+Project-URL: Tracker, https://github.com/djm-1/django-cloudistatic/issues
 Platform: UNKNOWN
 Classifier: Environment :: Web Environment
 Classifier: Framework :: Django
@@ -63,4 +66,8 @@ Quick start
    and your staticfiles will be ready to be served from there. If you want to delete your local STATIC_ROOT (staticfiles will not be served from here now) after
    uploading to cloud, then you should run ``python manage.py cloudistatic --deletelocal`` instead of 
    ``python manage.py cloudistatic``.
+
+For more info check out the `documentation
+<https://django-cloudistatic.readthedocs.io>`_. And for questions about usage or
+development you can create an issue on Github.
 
