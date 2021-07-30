@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Welcome to django-cloudistatic’s documentation! &#8212; django-cloudistatic 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-django-cloudistatic-s-documentation">
+<h1>Welcome to django-cloudistatic’s documentation!<a class="headerlink" href="#welcome-to-django-cloudistatic-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+<section id="django-cloudistatic">
+<h2>django-cloudistatic<a class="headerlink" href="#django-cloudistatic" title="Permalink to this headline">¶</a></h2>
+<p>django-cloudistatic is a Django app to upload your staticfiles to Cloudinary and serve from there.
+Cloudinary serves files using CDN, which will reduce the load on django server and pages will load
+faster.</p>
+<section id="quick-start">
+<h3>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Add “djangocloudistatic” to your INSTALLED_APPS setting like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s1">&#39;djangocloudistatic&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Declare the following settings variables (you will get them from Cloudinary dashboard)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CLOUDI_NAME</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">Cloud</span> <span class="n">name</span><span class="o">&gt;</span>
+<span class="n">CLOUDI_API_KEY</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">API</span> <span class="n">Key</span><span class="o">&gt;</span>
+<span class="n">CLOUDI_API_SECRET</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">API</span> <span class="n">Secret</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Include <code class="docutils literal notranslate"><span class="pre">STATICFILES_DIRS</span></code> and <code class="docutils literal notranslate"><span class="pre">STATIC_ROOT</span></code> in settings.py file (Should be included before <code class="docutils literal notranslate"><span class="pre">STATIC_URL</span></code>)
+of your project. You may refer to <a class="reference external" href="https://docs.djangoproject.com/en/3.2/howto/static-files/">https://docs.djangoproject.com/en/3.2/howto/static-files/</a> for details.</p></li>
+<li><p>Modify the <code class="docutils literal notranslate"><span class="pre">STATIC_URL</span></code> like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">STATIC_URL</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;https://res.cloudinary.com/</span><span class="si">{</span><span class="n">CLOUDI_NAME</span><span class="si">}</span><span class="s1">/raw/upload/v1/</span><span class="si">{</span><span class="n">STATIC_ROOT</span><span class="si">}</span><span class="s1">/&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Now run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">collectstatic</span></code> command to collect all staticfiles to STATIC_ROOT
+of your project.</p></li>
+<li><p>Finally, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">cloudistatic</span></code> to upload staticfiles to Cloudinary. Wait for a few minutes
+and your staticfiles will be ready to be served from there. If you want to delete your local STATIC_ROOT (staticfiles will not be served from here now) after
+uploading to cloud, then you should run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">cloudistatic</span> <span class="pre">--deletelocal</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">manage.py</span> <span class="pre">cloudistatic</span></code>.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">django-cloudistatic</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Dibyajyoti Mondal.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
