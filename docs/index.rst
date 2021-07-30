@@ -28,8 +28,8 @@ django-cloudistatic is a Django app to upload your staticfiles to Cloudinary and
 Cloudinary serves files using CDN, which will reduce the load on django server and pages will load 
 faster.
 
-`Github Repo<https://github.com/djm-1/django-cloudistatic>`_
-`PYPI page<https://pypi.org/project/django-cloudistatic/>`_
+* `Github Repo <https://github.com/djm-1/django-cloudistatic>`_
+* `PYPI page <https://pypi.org/project/django-cloudistatic/>`_
 
 Quick start
 -----------
